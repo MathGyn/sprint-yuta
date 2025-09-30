@@ -158,7 +158,7 @@ const ActionsRow = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  margin-top: 28px; /* maior afastamento em relação ao Enviar */
+  margin-top: 44px; /* maior afastamento em relação ao Enviar */
 
   @media (max-width: 540px) {
     flex-wrap: wrap; /* em telas bem pequenas pode quebrar */
