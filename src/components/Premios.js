@@ -192,6 +192,25 @@ const PremioStars = styled.div`
   }
 `;
 
+const DisclaimerText = styled.p`
+  text-align: center;
+  margin-top: 40px;
+  font-size: 11px;
+  color: #444444;
+  font-weight: 600;
+  font-style: italic;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
+
 const PremioImage = styled.img`
   width: 180px;
   height: auto;
@@ -488,6 +507,8 @@ const Premios = () => {
             </PremioCard>
           ))}
         </PremiosGrid>
+
+        <DisclaimerText><a href="/._regulamento/" target="_blank" rel="noopener noreferrer">Confira o regulamento completo</a></DisclaimerText>
       </Container>
     </Section>
   );

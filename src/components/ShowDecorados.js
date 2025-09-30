@@ -345,6 +345,25 @@ const BannerText = styled.div`
   }
 `;
 
+const DisclaimerText = styled.p`
+  text-align: center;
+  margin-top: 40px;
+  font-size: 11px;
+  color: #444444;
+  font-weight: 600;
+  font-style: italic;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
+
 const decoradosData = [
   {
     id: 'urban-garden',
@@ -526,6 +545,8 @@ const ShowDecorados = () => {
         <PremiumBanner>
           <BannerText>PRÊMIO DE R$8.000 PARA O CORRETOR E R$ 2.000 PARA O GERENTE</BannerText>
         </PremiumBanner>
+
+        <DisclaimerText><a href="/._regulamento/" target="_blank" rel="noopener noreferrer">Confira o regulamento completo</a></DisclaimerText>
       </Container>
     </Section>
   );

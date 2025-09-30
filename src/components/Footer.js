@@ -17,6 +17,32 @@ const Container = styled.div`
   text-align: center;
 `;
 
+const RegulamentoButton = styled.a`
+  display: inline-block;
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+  font-family: 'Salena', sans-serif;
+
+  &:hover {
+    background: var(--color-gold);
+    color: #000000;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 12px 25px;
+  }
+`;
+
 const Copyright = styled.p`
   color: #666666;
   font-size: 12px;
@@ -41,6 +67,9 @@ const Footer = () => {
   return (
     <FooterSection>
       <Container>
+        <RegulamentoButton href="/._regulamento/" target="_blank" rel="noopener noreferrer">
+          Ver regulamento completo
+        </RegulamentoButton>
         <Copyright>
           © 2025 Yutá Inc. Todos os direitos reservados. Criado por <Link href="http://behance.net/MatheusSouza" target="_blank" rel="noopener noreferrer">Matheus Souza</Link>.
         </Copyright>

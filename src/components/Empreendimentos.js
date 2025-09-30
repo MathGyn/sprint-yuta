@@ -257,6 +257,189 @@ const ViewAllButton = styled.button`
   }
 `;
 
+const DisclaimerText = styled.p`
+  text-align: center;
+  margin-top: 40px;
+  font-size: 11px;
+  color: #444444;
+  font-weight: 600;
+  font-style: italic;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+`;
+
+const ModalContent = styled.div`
+  background: #0A0A0A;
+  border: 1px solid var(--color-gold);
+  max-width: 1200px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+`;
+
+const ModalHeader = styled.div`
+  padding: 40px 40px 30px;
+  border-bottom: 1px solid #222222;
+  position: sticky;
+  top: 0;
+  background: #0A0A0A;
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    padding: 30px 25px 20px;
+  }
+`;
+
+const ModalTitle = styled.h3`
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--color-white);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+const ModalSubtitle = styled.p`
+  font-size: 13px;
+  color: #666666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: transparent;
+  border: 1px solid #222222;
+  color: #666666;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Salena', sans-serif;
+
+  &:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  @media (max-width: 768px) {
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+`;
+
+const ModalBody = styled.div`
+  padding: 40px;
+
+  @media (max-width: 768px) {
+    padding: 25px;
+  }
+`;
+
+const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+`;
+
+const TableHeader = styled.thead`
+  background: #111111;
+`;
+
+const TableRow = styled.tr`
+  border-bottom: 1px solid #222222;
+
+  &:hover {
+    background: #111111;
+  }
+`;
+
+const TableHeaderCell = styled.th`
+  padding: 18px 15px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    padding: 12px 10px;
+    font-size: 10px;
+  }
+`;
+
+const TableCell = styled.td`
+  padding: 20px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-white);
+
+  @media (max-width: 768px) {
+    padding: 15px 10px;
+    font-size: 12px;
+  }
+`;
+
+const PriceCell = styled(TableCell)`
+  color: var(--color-gold);
+  font-weight: 900;
+  font-size: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const BadgeCell = styled(TableCell)`
+  span {
+    background: var(--color-gold);
+    color: #000000;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+  }
+`;
+
 const empreendimentos = [
   {
     id: 'synergia',
@@ -270,21 +453,21 @@ const empreendimentos = [
         area: '68m²',
         originalPrice: 'De R$ 1.400.000',
         promoPrice: 'R$ 780.000',
-        discount: '84 un.'
+        discount: 'R$ 620 mil OFF'
       },
       {
         type: '3 Suítes',
         area: '119m²',
         originalPrice: 'De R$ 1.900.000',
         promoPrice: 'R$ 1.350.000',
-        discount: '82 un.'
+        discount: 'R$ 550 mil OFF'
       },
       {
         type: '3 Suítes',
         area: '122m²',
         originalPrice: 'De R$ 1.900.000',
         promoPrice: 'R$ 1.400.000',
-        discount: '71 un.'
+        discount: 'R$ 500 mil OFF'
       }
     ]
   },
@@ -300,28 +483,28 @@ const empreendimentos = [
         area: '60m²',
         originalPrice: 'De R$ 1.100.000',
         promoPrice: 'R$ 630.000',
-        discount: '87 un.'
+        discount: 'R$ 470 mil OFF'
       },
       {
         type: '2 Suítes',
         area: '61m²',
         originalPrice: 'De R$ 1.100.000',
         promoPrice: 'R$ 700.000',
-        discount: '80 un.'
+        discount: 'R$ 400 mil OFF'
       },
       {
         type: '2 Suítes',
         area: '75m²',
         originalPrice: 'De R$ 1.150.000',
         promoPrice: 'R$ 750.000',
-        discount: '44 un.'
+        discount: 'R$ 400 mil OFF'
       },
       {
         type: '3 Suítes',
         area: '93m²',
         originalPrice: 'De R$ 1.400.000',
         promoPrice: 'R$ 1.050.000',
-        discount: '83 un.'
+        discount: 'R$ 350 mil OFF'
       }
     ]
   },
@@ -337,35 +520,35 @@ const empreendimentos = [
         area: '49m²',
         originalPrice: 'De R$ 600.000',
         promoPrice: 'R$ 425.000',
-        discount: '71 un.'
+        discount: 'R$ 175 mil OFF'
       },
       {
         type: '2 Quartos + 1 Suíte',
         area: '60m²',
         originalPrice: 'De R$ 900.000',
         promoPrice: 'R$ 600.000',
-        discount: '84 un.'
+        discount: 'R$ 300 mil OFF'
       },
       {
         type: '2 Suítes',
         area: '67m²',
         originalPrice: 'De R$ 1.050.000',
         promoPrice: 'R$ 690.000',
-        discount: '39 un.'
+        discount: 'R$ 360 mil OFF'
       },
       {
         type: '3 Suítes',
         area: '82m²',
         originalPrice: 'De R$ 1.150.000',
         promoPrice: 'R$ 740.000',
-        discount: '52 un.'
+        discount: 'R$ 410 mil OFF'
       },
       {
         type: '3 Suítes',
         area: '82m²',
         originalPrice: 'De R$ 1.250.000',
         promoPrice: 'R$ 810.000',
-        discount: '83 un.'
+        discount: 'R$ 440 mil OFF'
       }
     ]
   },
@@ -381,14 +564,14 @@ const empreendimentos = [
         area: '73m²',
         originalPrice: 'De R$ 650.000',
         promoPrice: 'R$ 500.000',
-        discount: '103 un.'
+        discount: 'R$ 150 mil OFF'
       },
       {
         type: '3 Quartos + 1 Suíte',
         area: '75m²',
         originalPrice: 'De R$ 680.000',
         promoPrice: 'R$ 530.000',
-        discount: '100 un.'
+        discount: 'R$ 150 mil OFF'
       }
     ]
   },
@@ -404,21 +587,21 @@ const empreendimentos = [
         area: '59m²',
         originalPrice: 'De R$ 450.000',
         promoPrice: 'R$ 372.475',
-        discount: '49 un.'
+        discount: 'R$ 77,5 mil OFF'
       },
       {
         type: '2 Quartos + 1 Suíte',
         area: '59m²',
         originalPrice: 'De R$ 450.000',
         promoPrice: 'R$ 375.475',
-        discount: '45 un.'
+        discount: 'R$ 74,5 mil OFF'
       },
       {
         type: '2 Quartos + 1 Suíte',
         area: '62m²',
         originalPrice: 'De R$ 480.000',
         promoPrice: 'R$ 391.679',
-        discount: '38 un.'
+        discount: 'R$ 88,3 mil OFF'
       }
     ]
   }
@@ -426,6 +609,7 @@ const empreendimentos = [
 
 const Empreendimentos = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const intervalRef = useRef(null);
   const pauseTimeoutRef = useRef(null);
 
@@ -453,6 +637,14 @@ const Empreendimentos = () => {
     }, 30000);
   };
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   useEffect(() => {
     startAutoRotation();
 
@@ -461,6 +653,24 @@ const Empreendimentos = () => {
       if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        handleCloseModal();
+      }
+    };
+
+    if (isModalOpen) {
+      window.addEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
 
   const activeEmpreendimento = empreendimentos[activeIndex];
 
@@ -510,12 +720,55 @@ const Empreendimentos = () => {
               ))}
             </UnitsGrid>
 
-            <ViewAllButton>
+            <ViewAllButton onClick={handleOpenModal}>
               Ver todas as unidades com desconto
             </ViewAllButton>
           </InfoSection>
         </EmpreendimentoContainer>
+
+        <DisclaimerText><a href="/._regulamento/" target="_blank" rel="noopener noreferrer">Confira o regulamento completo</a></DisclaimerText>
       </Container>
+
+      {isModalOpen && (
+        <ModalOverlay onClick={handleCloseModal}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <ModalHeader>
+              <CloseButton onClick={handleCloseModal}>×</CloseButton>
+              <ModalTitle>{activeEmpreendimento.name}</ModalTitle>
+              <ModalSubtitle>
+                {activeEmpreendimento.details} • {activeEmpreendimento.delivery}
+              </ModalSubtitle>
+            </ModalHeader>
+
+            <ModalBody>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHeaderCell>Tipo</TableHeaderCell>
+                    <TableHeaderCell>Área</TableHeaderCell>
+                    <TableHeaderCell>Preço Original</TableHeaderCell>
+                    <TableHeaderCell>Preço Promocional</TableHeaderCell>
+                    <TableHeaderCell>Desconto</TableHeaderCell>
+                  </TableRow>
+                </TableHeader>
+                <tbody>
+                  {activeEmpreendimento.units.map((unit, index) => (
+                    <TableRow key={index}>
+                      <TableCell>{unit.type}</TableCell>
+                      <TableCell>{unit.area}</TableCell>
+                      <TableCell>{unit.originalPrice}</TableCell>
+                      <PriceCell>{unit.promoPrice}</PriceCell>
+                      <BadgeCell>
+                        <span>{unit.discount}</span>
+                      </BadgeCell>
+                    </TableRow>
+                  ))}
+                </tbody>
+              </Table>
+            </ModalBody>
+          </ModalContent>
+        </ModalOverlay>
+      )}
     </Section>
   );
 };
