@@ -93,8 +93,8 @@ const Input = styled.input`
 const ButtonsGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 18px;
+  margin-top: 40px;
 `;
 
 const SubmitButton = styled.button`
@@ -137,6 +137,40 @@ const SecondaryButton = styled.button`
   cursor: pointer;
   text-decoration: none;
   display: block;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-family: 'Salena', sans-serif;
+
+  &:hover {
+    background: var(--color-gold);
+    color: #000000;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    padding: 18px 35px;
+  }
+`;
+
+const ActionsRow = styled.div`
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+const LinkButton = styled.a`
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px 40px;
+  text-decoration: none;
+  display: inline-block;
   text-align: center;
   transition: all 0.3s ease;
   font-family: 'Salena', sans-serif;
@@ -452,9 +486,15 @@ const CallToAction = () => {
               Enviar
             </SubmitButton>
 
-            <SecondaryButton type="button" onClick={handleOpenModal}>
-              Falar com um coordenador
-            </SecondaryButton>
+            <ActionsRow>
+              <LinkButton href="/materiais" target="_blank" rel="noopener noreferrer">
+                Corretor, Acesse os materiais de apoio
+              </LinkButton>
+
+              <SecondaryButton type="button" onClick={handleOpenModal}>
+                Falar com um coordenador
+              </SecondaryButton>
+            </ActionsRow>
           </ButtonsGroup>
         </Form>
       </Container>
