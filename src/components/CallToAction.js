@@ -93,8 +93,8 @@ const Input = styled.input`
 const ButtonsGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-top: 40px;
+  gap: 28px; /* espaço entre o Enviar e a linha de botões */
+  margin-top: 24px;
 `;
 
 const SubmitButton = styled.button`
@@ -154,10 +154,14 @@ const SecondaryButton = styled.button`
 
 const ActionsRow = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+
+  @media (max-width: 540px) {
+    flex-wrap: wrap; /* em telas bem pequenas pode quebrar */
+  }
 `;
 
 const LinkButton = styled.a`
