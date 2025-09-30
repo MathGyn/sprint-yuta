@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# Sprint Final 2025 - Yutá Inc.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Site promocional da campanha **Sprint Final 2025** da Yutá Inc.
 
-## Available Scripts
+## 🎯 Sobre o Projeto
 
-In the project directory, you can run:
+Landing page desenvolvida em React para promover a campanha Sprint Final 2025, apresentando:
 
-### `npm start`
+- **R$ 3 milhões** em descontos
+- **R$ 300.000** em prêmios
+- Empreendimentos selecionados com condições especiais
+- Benefícios exclusivos para corretores e clientes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🎨 Identidade Visual
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Cores**: Preto elegante, Amarelo/Dourado vibrante, Branco
+- **Tipografia**: Inter (sans-serif, bold)
+- **Estilo**: Corporativo moderno com alta urgência comercial
+- **Elementos**: Bordas douradas, gradientes sutis, efeitos de iluminação
 
-### `npm test`
+## 🚀 Tecnologias
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React 18
+- Styled Components
+- Google Fonts (Inter)
 
-### `npm run build`
+## 📦 Instalação e Execução
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Instalar dependências
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Iniciar servidor de desenvolvimento
+npm start
+# Acesse: http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Build para produção
+npm run build
+```
 
-### `npm run eject`
+## 🏗️ Estrutura do Projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+src/
+├── components/
+│   ├── Hero.js              # Banner principal com countdown
+│   ├── Empreendimentos.js   # Cards dos imóveis Synergia
+│   ├── Beneficios.js        # Seção de benefícios da campanha
+│   ├── CallToAction.js      # CTAs e botões de conversão
+│   └── Footer.js            # Rodapé com informações legais
+├── styles/
+│   └── GlobalStyles.js      # Estilos globais e variáveis CSS
+└── App.js                   # Componente principal
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📱 Componentes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Hero
+Banner principal com:
+- Logo Yutá Inc.
+- Relógio representando urgência
+- Títulos "SPRINT FINAL 2025"
+- Boxes destacando valores de descontos e prêmios
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Empreendimentos
+Cards do **Synergia** com:
+- Tipos de unidades (2 quartos, 3 suítes, coberturas)
+- Metragens
+- Preços originais e promocionais
+- Selos de desconto
+- Informação de entrega
 
-## Learn More
+### Benefícios
+Grid com 4 benefícios principais:
+- Descontos especiais
+- Premiação para corretores
+- Bônus para decorados
+- Análise de permuta
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Call to Action
+Botões de conversão:
+- Fale com um especialista
+- Quero participar
+- Baixar regulamento
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Footer
+Informações institucionais:
+- Links rápidos
+- Contatos
+- Horário de atendimento
+- Redes sociais
+- Informações legais
 
-### Code Splitting
+## 🎨 Cores (CSS Variables)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```css
+--color-black: #000000
+--color-gold: #D4AF37
+--color-yellow: #F5C61A
+--color-white: #FFFFFF
+--color-gray: #A0A0A0
+--color-dark-gray: #1A1A1A
+```
 
-### Analyzing the Bundle Size
+## 📱 Responsividade
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+O site é totalmente responsivo com breakpoints:
+- Desktop: > 1024px
+- Tablet: 768px - 1024px
+- Mobile: < 768px
 
-### Making a Progressive Web App
+## 🔧 Customização
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Para personalizar os dados dos empreendimentos, edite o array `units` em:
+```
+src/components/Empreendimentos.js
+```
 
-### Advanced Configuration
+Para alterar os benefícios, edite o array `benefits` em:
+```
+src/components/Beneficios.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📄 Licença
 
-### Deployment
+© 2025 Yutá Inc. Todos os direitos reservados.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 👨‍💻 Desenvolvimento
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Desenvolvido com React e Styled Components para a campanha Sprint Final 2025.
