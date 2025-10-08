@@ -85,8 +85,8 @@ const cardData = [
     icon: PercentIcon
   },
   {
-    title: 'PREMIAÇÃO',
-    description: 'PARA CORRETOR & GERENTES',
+    title: 'CORRETOR & GERENTES',
+    description: 'PREMIAÇÃO PARA',
     label: 'Incentivo',
     icon: TrophyIcon
   },
@@ -328,53 +328,30 @@ const GlobalSpotlight = ({ gridRef, spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS, 
   return null;
 };
 
-const PermutaBanner = styled.div`
-  background: var(--color-gold);
-  padding: 50px 60px;
+const FeaturesImageContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 40px;
   margin-top: 60px;
+  width: 100%;
 
-  @media (max-width: 968px) {
-    flex-direction: column;
-    padding: 40px 30px;
-    gap: 25px;
-    text-align: center;
+  @media (max-width: 768px) {
+    margin-top: 40px;
   }
 `;
 
-const PermutaTitle = styled.h3`
-  font-size: 48px;
-  font-weight: 900;
-  color: #000000;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-
-  span {
-    font-weight: 400;
-    font-size: 36px;
-  }
-
+const FeaturesImage = styled.img`
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  display: block;
+  
   @media (max-width: 768px) {
-    font-size: 32px;
-
-    span {
-      font-size: 24px;
-    }
+    max-width: 85%;
   }
-`;
-
-const PermutaText = styled.div`
-  font-size: 16px;
-  font-weight: 800;
-  color: #000000;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-
-  @media (max-width: 768px) {
-    font-size: 14px;
+  
+  @media (max-width: 480px) {
+    max-width: 90%;
   }
 `;
 
@@ -416,22 +393,17 @@ const Highlights = () => {
                   </div>
                 </div>
                 <div className="card__content">
-                  <h2 className="card__title">{card.title}</h2>
                   <p className="card__description">{card.description}</p>
+                  <h2 className="card__title">{card.title}</h2>
                 </div>
               </ParticleCard>
             );
           })}
         </div>
 
-        <PermutaBanner>
-          <PermutaTitle>
-            <span>ANÁLISE DE</span> PERMUTA
-          </PermutaTitle>
-          <PermutaText>
-            ANALISAMOS VEÍCULO E IMÓVEIS
-          </PermutaText>
-        </PermutaBanner>
+        <FeaturesImageContainer>
+          <FeaturesImage src="/features.png" alt="Features" />
+        </FeaturesImageContainer>
       </Container>
     </Section>
   );

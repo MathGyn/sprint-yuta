@@ -184,7 +184,7 @@ const Hero = () => {
         <HighlightBoxes>
           <HighlightBox>
             <HighlightLabel>MAIS DE</HighlightLabel>
-            <HighlightValue>R$ 3 MILHÕES</HighlightValue>
+            <HighlightValue>R$ 3,5 MILHÕES</HighlightValue>
             <HighlightSubtext>EM DESCONTO</HighlightSubtext>
           </HighlightBox>
 

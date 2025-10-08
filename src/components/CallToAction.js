@@ -376,19 +376,19 @@ const coordinators = [
   {
     name: 'Eltoncley Oliveira',
     role: 'Coordenador',
-    phone: '5511999999999',
+    phone: '5562996098005',
     photo: '/images/coordinators/eltoncley-oliveira.jpg'
   },
   {
     name: 'Douglas Marques',
     role: 'Coordenador',
-    phone: '5511988888888',
+    phone: '5562982505880',
     photo: '/images/coordinators/douglas-marques.jpg'
   },
   {
     name: 'Glaucia\nSouza',
     role: 'Coordenadora',
-    phone: '5511977777777',
+    phone: '5562991232342',
     photo: '/images/coordinators/glaucia-souza.jpg'
   }
 ];
@@ -492,7 +492,7 @@ const CallToAction = () => {
             </SubmitButton>
 
             <ActionsRow>
-              <LinkButton href="/materiais" target="_blank" rel="noopener noreferrer">
+              <LinkButton href="https://drive.google.com/drive/folders/135B2h0ur1umU8uSrHnnrQoyPrULsAig-" target="_blank" rel="noopener noreferrer">
                 Corretor, Acesse os materiais de apoio
               </LinkButton>
 
@@ -521,7 +521,7 @@ const CallToAction = () => {
                     <CoordinatorName>{coordinator.name}</CoordinatorName>
                     <CoordinatorRole>{coordinator.role}</CoordinatorRole>
                     <WhatsAppButton
-                      href={`https://wa.me/${coordinator.phone}?text=Olá%20${coordinator.name.split(' ')[0]},%20vim%20do%20site%20da%20Sprint%20Final%202025`}
+                      href={`https://wa.me/${coordinator.phone}?text=Olá,%20quero%20aproveitar%20as%20condições%20especiais%20da%20Sprint%20Final%20Yutá!`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

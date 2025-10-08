@@ -101,6 +101,7 @@ const PremioCard = styled.div`
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  grid-column: ${props => props.$fullWidth ? '1 / -1' : 'auto'};
 
   &:hover {
     border-color: var(--color-gold);
@@ -109,6 +110,7 @@ const PremioCard = styled.div`
 
   @media (max-width: 768px) {
     padding: 30px 25px;
+    grid-column: auto;
   }
 `;
 
@@ -136,7 +138,7 @@ const PremioHeader = styled.div`
 
 const PremioContent = styled.div`
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: ${props => props.$fullWidth ? '2fr auto' : '1fr auto'};
   gap: 30px;
   align-items: center;
 
@@ -170,7 +172,7 @@ const PremioTitle = styled.h3`
 `;
 
 const PremioValue = styled.div`
-  font-size: 42px;
+  font-size: ${props => props.$fullWidth ? '56px' : '42px'};
   font-weight: 900;
   color: var(--color-gold);
   line-height: 1;
@@ -178,6 +180,15 @@ const PremioValue = styled.div`
   @media (max-width: 768px) {
     font-size: 36px;
   }
+`;
+
+const PremioSubtitle = styled.div`
+  font-size: 12px;
+  color: #666666;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
 `;
 
 const PremioStars = styled.div`
@@ -225,10 +236,10 @@ const PremioImage = styled.img`
 const premiosData = [
   {
     id: 'synergia',
-    name: 'SYNERGIA',
+    name: 'SYNERGIA BUENO',
     premios: [
       {
-        header: 'Vendeu unidade de 2 Quartos ou 3 Suítes',
+        header: 'Vendeu unidade de 2 Quartos ou 2 Suítes',
         target: 'CORRETOR',
         title: 'GANHA',
         premio: 'IPHONE 16!',
@@ -244,7 +255,7 @@ const premiosData = [
         image: '/images/premios/macbook.png'
       },
       {
-        header: '',
+        header: 'Vendeu unidade de 2 Quartos ou 2 Suítes',
         target: 'GERENTE',
         title: 'GANHA',
         value: 'R$ 1.000',
@@ -252,7 +263,7 @@ const premiosData = [
         image: null
       },
       {
-        header: '',
+        header: 'Vendeu unidade de 3 Suítes',
         target: 'GERENTE',
         title: 'GANHA',
         value: 'R$ 2.000',
@@ -274,7 +285,7 @@ const premiosData = [
         image: '/images/premios/macbook.png'
       },
       {
-        header: '',
+        header: 'Vendeu qualquer unidade',
         target: 'GERENTE',
         title: 'GANHA',
         value: 'R$ 1.000',
@@ -286,7 +297,9 @@ const premiosData = [
         target: 'O PRÊMIO',
         title: 'DOBRA',
         value: 'R$ 2.000',
+        subtitle: 'PARA CADA UNIDADE',
         special: true,
+        fullWidth: true,
         image: '/images/premios/relogio.png'
       }
     ]
@@ -304,7 +317,7 @@ const premiosData = [
         image: '/images/premios/macbook.png'
       },
       {
-        header: '',
+        header: 'Vendeu qualquer unidade',
         target: 'GERENTE',
         title: 'GANHA',
         value: 'R$ 1.000',
@@ -316,14 +329,16 @@ const premiosData = [
         target: 'O PRÊMIO',
         title: 'DOBRA',
         value: 'R$ 2.000',
+        subtitle: 'PARA CADA UNIDADE',
         special: true,
+        fullWidth: true,
         image: '/images/premios/relogio.png'
       }
     ]
   },
   {
     id: 'vertice',
-    name: 'VÉRTICE',
+    name: 'VÉRTICE RESIDENCE',
     premios: [
       {
         header: 'Vendeu qualquer unidade',
@@ -334,7 +349,7 @@ const premiosData = [
         image: '/images/premios/macbook.png'
       },
       {
-        header: '',
+        header: 'Vendeu qualquer unidade',
         target: 'GERENTE',
         title: 'GANHA',
         value: 'R$ 1.000',
@@ -346,14 +361,16 @@ const premiosData = [
         target: 'PRÊMIO DE',
         title: '',
         value: 'R$ 10.000',
+        subtitle: 'PARA A IMOBILIÁRIA',
         special: true,
+        fullWidth: true,
         image: '/images/premios/relogio.png'
       }
     ]
   },
   {
     id: 'parque',
-    name: 'PARQUE',
+    name: 'RESERVA DO PARQUE',
     premios: [
       {
         header: 'Vendeu qualquer unidade',
@@ -364,7 +381,7 @@ const premiosData = [
         image: '/images/premios/macbook.png'
       },
       {
-        header: '',
+        header: 'Vendeu qualquer unidade',
         target: 'GERENTE',
         title: 'GANHA',
         value: 'R$ 1.000',
@@ -376,7 +393,9 @@ const premiosData = [
         target: 'O PRÊMIO',
         title: 'DOBRA',
         value: 'R$ 2.000',
+        subtitle: 'PARA CADA UNIDADE',
         special: true,
+        fullWidth: true,
         image: '/images/premios/relogio.png'
       }
     ]
@@ -476,17 +495,18 @@ const Premios = () => {
 
         <PremiosGrid>
           {activePremios.premios.map((premio, index) => (
-            <PremioCard key={index} $special={premio.special}>
+            <PremioCard key={index} $special={premio.special} $fullWidth={premio.fullWidth}>
               {premio.special && <SpecialBadge>ESPECIAL</SpecialBadge>}
 
               {premio.header && <PremioHeader>{premio.header}</PremioHeader>}
 
-              <PremioContent>
+              <PremioContent $fullWidth={premio.fullWidth}>
                 <PremioInfo>
                   <PremioTarget>{premio.target}</PremioTarget>
                   {premio.title && <PremioTitle>{premio.title}</PremioTitle>}
                   {premio.premio && <PremioTitle>{premio.premio}</PremioTitle>}
-                  {premio.value && <PremioValue>{premio.value}</PremioValue>}
+                  {premio.value && <PremioValue $fullWidth={premio.fullWidth}>{premio.value}</PremioValue>}
+                  {premio.subtitle && <PremioSubtitle>{premio.subtitle}</PremioSubtitle>}
                   {premio.stars > 0 && (
                     <PremioStars>
                       {Array.from({ length: premio.stars }).map((_, i) => (

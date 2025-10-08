@@ -116,7 +116,7 @@ const benefits = [
     highlight: 'Até R$ 420.000 off'
   },
   {
-    title: 'Premiação Corretores',
+    title: 'Corretor & Gerente',
     description: 'Prêmios especiais para corretores e gerentes que atingirem as metas',
     highlight: 'Até R$ 150.000'
   },
