@@ -528,7 +528,7 @@ const Premios = () => {
           ))}
         </PremiosGrid>
 
-        <DisclaimerText><a href="/._regulamento/" target="_blank" rel="noopener noreferrer">Confira o regulamento completo</a></DisclaimerText>
+        <DisclaimerText><a href="/regulamento" target="_blank" rel="noopener noreferrer">Confira o regulamento completo</a></DisclaimerText>
       </Container>
     </Section>
   );

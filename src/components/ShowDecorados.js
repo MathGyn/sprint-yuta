@@ -1156,7 +1156,7 @@ const ShowDecorados = () => {
           <BannerText>PRÊMIO DE R$8.000 PARA O CORRETOR E R$ 2.000 PARA O GERENTE</BannerText>
         </PremiumBanner>
 
-        <DisclaimerText><a href="/._regulamento/" target="_blank" rel="noopener noreferrer">Confira o regulamento completo</a></DisclaimerText>
+        <DisclaimerText><a href="/regulamento" target="_blank" rel="noopener noreferrer">Confira o regulamento completo</a></DisclaimerText>
       </Container>
 
       {/* Modal da Galeria */}

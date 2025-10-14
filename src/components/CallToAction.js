@@ -490,12 +490,10 @@ const CallToAction = () => {
             <SubmitButton type="submit">
               Enviar
             </SubmitButton>
-
             <ActionsRow>
               <LinkButton href="https://drive.google.com/drive/folders/135B2h0ur1umU8uSrHnnrQoyPrULsAig-" target="_blank" rel="noopener noreferrer">
                 Corretor, Acesse os materiais de apoio
               </LinkButton>
-
               <SecondaryButton type="button" onClick={handleOpenModal}>
                 Falar com um coordenador
               </SecondaryButton>
@@ -503,7 +501,6 @@ const CallToAction = () => {
           </ButtonsGroup>
         </Form>
       </Container>
-
       {isModalOpen && (
         <ModalOverlay onClick={handleCloseModal}>
           <ModalContent onClick={(e) => e.stopPropagation()}>
