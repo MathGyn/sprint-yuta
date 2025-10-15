@@ -132,6 +132,14 @@ const CallToActionCliente = () => {
     whatsapp: ''
   });
 
+  // IDs reais do Google Forms (Cliente)
+  // FORM: https://docs.google.com/forms/d/e/1FAIpQLSce80sFljnPD8X1s46FP2HVotEgaDeoprd_7oXqm1Ky96yHHQ/viewform
+  const FORM_ACTION_URL_CLIENTE = 'https://docs.google.com/forms/d/e/1FAIpQLSce80sFljnPD8X1s46FP2HVotEgaDeoprd_7oXqm1Ky96yHHQ/formResponse';
+  // Campos na ordem do formulário: Nome completo, E-mail, Telefone
+  const ENTRY_NAME_CLIENTE = 'entry.872313716';
+  const ENTRY_EMAIL_CLIENTE = 'entry.501723407';
+  const ENTRY_WHATSAPP_CLIENTE = 'entry.824062739';
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -139,9 +147,26 @@ const CallToActionCliente = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form data:', formData);
+    try {
+      const form = new FormData();
+      form.append(ENTRY_NAME_CLIENTE, formData.name);
+      form.append(ENTRY_EMAIL_CLIENTE, formData.email);
+      form.append(ENTRY_WHATSAPP_CLIENTE, formData.whatsapp);
+
+      await fetch(FORM_ACTION_URL_CLIENTE, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: form
+      });
+
+      alert('Enviado com sucesso! Em breve entraremos em contato.');
+      setFormData({ name: '', email: '', whatsapp: '' });
+    } catch (err) {
+      console.error(err);
+      alert('Não foi possível enviar. Tente novamente mais tarde.');
+    }
   };
 
   return (

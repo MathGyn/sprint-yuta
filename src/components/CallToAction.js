@@ -401,6 +401,14 @@ const CallToAction = () => {
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // IDs reais do Google Forms (Corretor)
+  // FORM: https://docs.google.com/forms/d/e/1FAIpQLSe4AYNiRMeCI_pwZfFBi0w0FYXE3OZxi_IEr6NPT-4ZPrIw8g/viewform
+  const FORM_ACTION_URL_CORRETOR = 'https://docs.google.com/forms/d/e/1FAIpQLSe4AYNiRMeCI_pwZfFBi0w0FYXE3OZxi_IEr6NPT-4ZPrIw8g/formResponse';
+  // Campos na ordem do formulário: Nome, E-mail, Telefone
+  const ENTRY_NAME_CORRETOR = 'entry.438251872';
+  const ENTRY_EMAIL_CORRETOR = 'entry.1185528650';
+  const ENTRY_WHATSAPP_CORRETOR = 'entry.924012251';
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -408,10 +416,26 @@ const CallToAction = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica de envio do formulário
-    console.log('Form data:', formData);
+    try {
+      const form = new FormData();
+      form.append(ENTRY_NAME_CORRETOR, formData.name);
+      form.append(ENTRY_EMAIL_CORRETOR, formData.email);
+      form.append(ENTRY_WHATSAPP_CORRETOR, formData.whatsapp);
+
+      await fetch(FORM_ACTION_URL_CORRETOR, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: form
+      });
+
+      alert('Enviado com sucesso! Em breve entraremos em contato.');
+      setFormData({ name: '', email: '', whatsapp: '' });
+    } catch (err) {
+      console.error(err);
+      alert('Não foi possível enviar. Tente novamente mais tarde.');
+    }
   };
 
   const handleOpenModal = () => {
